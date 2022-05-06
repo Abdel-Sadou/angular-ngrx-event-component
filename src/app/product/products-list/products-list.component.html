@@ -1,0 +1,29 @@
+<div class="container">
+
+  <div class="mt-5 card p-md-5" *ngIf="(listProducts$|async) as result" [ngSwitch]="result.dataState">
+    <div *ngSwitchCase="DataStateEnum.LOADING">
+      LOADING...
+    </div>
+    <div *ngSwitchCase="DataStateEnum.LOADED">
+      <table class="table">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Selected</th>
+          <th>Available</th>
+        </tr>
+        <tr *ngFor="let p of result.data">
+          <app-product-item  [p]="p" (actionEmitter)="getEmitEvent($event)"></app-product-item>
+        </tr>
+      </table>
+    </div>
+    <div *ngSwitchCase="DataStateEnum.ERROR">
+      <div class="alert-danger">
+        {{result.errorMessage}}
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,4 @@
+
+<app-products-nav-bar (productEventEmitter)="onActionEmitter($event)"></app-products-nav-bar>
+
+<app-products-list [listProducts$]="listProducts$"  (actionProductEventEmitter)="actionProduct($event)"></app-products-list>

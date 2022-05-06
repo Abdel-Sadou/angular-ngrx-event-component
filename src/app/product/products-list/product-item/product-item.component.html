@@ -1,0 +1,21 @@
+<td>{{p.id}}</td>
+<td>{{p.name}}</td>
+<td>{{p.price}}</td>
+<td>{{p.quantity}}</td>
+<td>{{p.selected}}</td>
+<td>{{p.available}}</td>
+<td>
+  <button class="btn btn-sm text-white" [ngClass]="p.selected? 'bg-primary' : 'bg-danger'">
+    <span (click)="onselect(p)" [innerHTML]="p.selected? 'Unselected' : 'Selected'"></span>
+  </button>
+</td>
+<td>
+  <button class="btn text-danger" (click)="onDelete(p)" >
+    <span class="fa fa-trash-o"></span>
+  </button>
+</td>
+<td>
+  <button class="btn text-danger" (click)="editProduct(p)" >
+    <span class="fa fa-edit"></span>
+  </button>
+</td>

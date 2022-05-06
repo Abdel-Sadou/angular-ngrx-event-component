@@ -1,0 +1,35 @@
+<div class="container mt-5 d-flex align-items-center justify-content-center">
+  <div class="card form col-5" >
+    <div class="card-header">
+      <h3>Formulaire d'ajout de produit</h3>
+      <div class="card-subtitle" *ngIf="error">{{error}}</div>
+    </div>
+    <div class="m-lg-5 card-body col-10">
+      <form  [formGroup]="formGroupProduct">
+        <div class="mb-3 align-items-center">
+            <label for="name" class="col-form-label">Name</label>
+            <input type="text" id="name" class="form-control" formControlName="name">
+        </div>
+        <div class="mb-3 g-3 align-items-center">
+            <label for="price" class="col-form-label">Price</label>
+            <input type="text" id="price" class="form-control" formControlName="price">
+        </div>
+        <div class="mb-3 g-3 align-items-center">
+            <label for="quantity" class="col-form-label">Quantity</label>
+            <input type="text" id="quantity" class="form-control" formControlName="quantity">
+        </div>
+         <div class="mb-3 g-3 align-items-center">
+           <input type="checkbox" class="form-check-input me-2" id="available"  formControlName="available">
+           <label class="form-check-label" for="selected">Available</label>
+        </div>
+        <div class="mb-3 g-3 align-items-center">
+            <input type="checkbox" class="form-check-input me-2" id="selected"  formControlName="selected">
+            <label class="form-check-label" for="selected">Selected</label>
+        </div>
+        <div class="card-footer">
+          <div class="text-center"><button class="btn btn-primary" (click)="onSaveProduct()">Ajouter</button></div>
+        </div>
+      </form>
+  </div>
+  </div>
+</div>
